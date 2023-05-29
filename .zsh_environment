@@ -1,0 +1,56 @@
+#!/bin/bash
+# with love from jaded <3
+
+# ----------------------------------------
+# environment variables
+# ----------------------------------------
+
+# set flags for lscolour
+colorflag="-G"
+export LSCOLORS='BxBxhxDxfxhxhxhxhxcxcx'
+
+# exports for node repl
+export NODE_REPL_HISTORY=~/.node_history;
+export NODE_REPL_HISTORY_SIZE='32768';
+export NODE_REPL_MODE='sloppy';
+
+# make python use utf-8
+export PYTHONIOENCODING='UTF-8';
+
+# exports for zsh
+export HISTSIZE='32768';
+export HISTFILESIZE="${HISTSIZE}";
+export HISTCONTROL='ignoreboth';
+
+# prefer english
+export LANG='en_US.UTF-8';
+export LC_ALL='en_US.UTF-8';
+
+# highlight section titles in manpages
+export LESS_TERMCAP_md="${yellow}";
+
+# dont clear the screen after quitting a manual page
+export MANPAGER='less -X';
+
+# avoid issues with `gpg` as installed via brew
+export GPG_TTY=$(tty);
+
+# add use dotnet 6
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet@6/libexec"
+
+# add pyenv root directory
+export PYENV_ROOT="$HOME/.pyenv"
+
+# ----------------------------------------
+# environments
+# ----------------------------------------
+
+# setup homebrew environment
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# setup ruby environment
+eval "$(rbenv init - zsh)"
+
+# setup pyenv environment
+eval "$(pyenv init -)"
+
